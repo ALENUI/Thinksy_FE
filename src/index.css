@@ -9,3 +9,9 @@
   --breakpoint-desktop: 1024px;
   --breakpoint-widescreen: 1280px;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  @apply bg-white dark:bg-gray-900;
+}
