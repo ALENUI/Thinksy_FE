@@ -17,13 +17,13 @@
 
 ## 🛠 Tech Stack
 
-| Layer         | Technology                          |
-|---------------|-------------------------------------|
-| Frontend      | React + Tailwind CSS                |
-| Routing       | React Router                        |
+| Layer         | Technology                                       |
+| ------------- | ------------------------------------------------ |
+| Frontend      | React + Tailwind CSS                             |
+| Routing       | React Router                                     |
 | Backend       | Firebase (Auth + Firestore) / Node.js (optional) |
-| Realtime Chat | Firebase Realtime DB / Socket.io    |
-| Hosting       | Vercel (Frontend), Render (Backend) |
+| Realtime Chat | Firebase Realtime DB / Socket.io                 |
+| Hosting       | Vercel (Frontend), Render (Backend)              |
 
 ---
 
@@ -42,7 +42,8 @@ Copy code
    ```bash
    git clone https://github.com/yourusername/thinksy.git
    cd thinksy
-Install dependencies
+   Install dependencies
+   ```
 
 bash
 Copy code
