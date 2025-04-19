@@ -17,11 +17,15 @@ export default function ThemeToggle() {
   }, [isDark]);
 
   return (
-    <button
-      onClick={() => setIsDark(!isDark)}
-      className=" dark:bg-gray-200 bg-gray-800 text-black dark:text-white rounded-full w-8 h-8  desktop:w-10 desktop:h-10"
-    >
-      {isDark ? <LightMode /> : <DarkMode />}
-    </button>
+    <div>
+      <div
+        onClick={() => setIsDark(!isDark)}
+        className="w-14 p-1 cursor-pointer border border-black dark:border-white dark:text-white rounded-full transition-colors ease-in-out duration-800 "
+      >
+        <div className="translate-x-0 dark:translate-x-5 transition-all ease-linear duration-200">
+          {isDark ? <DarkMode /> : <LightMode />}
+        </div>
+      </div>
+    </div>
   );
 }

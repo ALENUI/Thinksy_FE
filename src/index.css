@@ -13,5 +13,18 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-white dark:bg-gray-900;
+  @apply text-black dark:text-gray-200 bg-gray-200 dark:bg-gray-900 transition-all ease-in-out duration-400;
+}
+
+.primary-btn {
+  @apply bg-primary text-white;
+}
+
+.secondary-btn {
+  @apply bg-secondary text-white;
+}
+
+.primary-btn,
+.secondary-btn {
+  @apply px-2 py-1 rounded-2xl border border-white flex items-center justify-center text-center gap-2 font-semibold;
 }
