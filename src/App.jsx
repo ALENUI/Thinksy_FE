@@ -10,14 +10,37 @@ import "./index.css";
 import Navbar from "./components/themeTogglt-Btn/navbar/Navbar";
 
 function App() {
+  const links = [
+    {
+      path: "/",
+      label: "Home",
+      element: <Home />,
+    },
+
+    {
+      path: "/dashboard",
+      label: "Dashboard",
+      element: <Dashboard />,
+    },
+    {
+      path: "/profile",
+      label: "Profile",
+      element: <Profile />,
+    },
+  ];
+
   return (
     <Router>
-      <Navbar />
+      <Navbar links={links} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {links.map((link, i) => (
+          <Route key={i} path={link.path} element={link.element} />
+        ))}
         <Route path="/login" element={<Login />} />
+        {/* <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
+        */}
         <Route path="/group/:id" element={<GroupPage />} />
       </Routes>
     </Router>
