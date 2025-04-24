@@ -22,12 +22,6 @@ export default function Navbar(props) {
     },
   ];
 
-  const [profileMenuDisplay, setProfileMenuDisplay] = useState("hidden");
-  useEffect(() => {
-    onclick(() => {
-      setProfileMenuDisplay = "";
-    });
-  });
   return (
     <>
       <div className="flex justify-between w-[90%] mx-auto mt-10 items-center">
@@ -47,13 +41,13 @@ export default function Navbar(props) {
           ))}
         </div>
         <div className="flex gap-5">
-          <div className="border-r pr-5">
-            <div className="relative " onMouseEnter={profileMenuDisplay}>
+          <div className="border-r pr-5 group">
+            <div className="relative ">
               <Person />
-              <ul className="dark:bg-gray-600  flex flex-col hidden  py-4 absolute w-50 right-0 mt-4">
+              <ul className="dark:bg-gray-600 bg-gray-900 text-white  group-hover:flex flex-col hidden  py-4 absolute w-50 right-0 ">
                 {profileMenu.map((link, i) => (
                   <Link
-                    className="dark:hover:bg-black p-2 flex items-center gap-2"
+                    className="dark:hover:bg-black hover:bg-gray-600 p-2 flex items-center gap-2"
                     to={link.path}
                   >
                     {link.icon}
