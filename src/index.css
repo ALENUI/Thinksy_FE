@@ -26,5 +26,9 @@ body {
 
 .primary-btn,
 .secondary-btn {
-  @apply px-2 py-1 rounded-2xl border border-white flex items-center justify-center text-center gap-2 font-semibold;
+  @apply px-2 py-1 rounded-lg border border-white/50 flex items-center justify-center text-center gap-2 font-semibold cursor-pointer;
+}
+
+.input-field {
+  @apply dark:bg-gray-600 bg-gray-300 dark:text-white px-3 py-2 text-lg outline-0 rounded-xl;
 }
