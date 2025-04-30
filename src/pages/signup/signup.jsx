@@ -57,6 +57,7 @@ export default function Signup() {
         <button onClick={handleClickStart}>Start</button>
       </div> */}
       <Personalinfo />
+      <AcademicInfo />
     </>
   );
 }
