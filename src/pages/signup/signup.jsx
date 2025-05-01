@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Joyride from "react-joyride";
 
 import Personalinfo from "./boards/personalinfo";
+import AcademicInfo from "./boards/academicInfo";
 
 export default function Signup() {
   const steps = [
@@ -33,8 +34,19 @@ export default function Signup() {
   };
   return (
     <>
-      {/* unboarding section */}
-      {/* <div>
+      <div className="tablet:w-2/3 mt-10 mx-auto text-center">
+        <h1 className="heading1">Create Your account today...</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, at
+          unde officia neque animi ullam error, sint quae odit maiores qui
+          praesentium rem incidunt ipsa explicabo dolorem cupiditate dicta ipsum
+          atque, nesciunt quia aliquam! Ab mollitia quasi quos similique
+          voluptates labore consequatur?
+        </p>
+      </div>
+      <div className="flex max-tablet:flex-col my-10 w-[95%] mx-auto items-center gap-10  min-h-[80vh]">
+        {/* unboarding section */}
+        {/* <div>
         <Joyride
           run={run}
           steps={steps}
@@ -56,8 +68,9 @@ export default function Signup() {
         />
         <button onClick={handleClickStart}>Start</button>
       </div> */}
-      <Personalinfo />
-      <AcademicInfo />
+        {/* <Personalinfo /> */}
+        <AcademicInfo />
+      </div>
     </>
   );
 }

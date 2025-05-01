@@ -30,18 +30,33 @@ export default function Navbar(props) {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-
   useEffect(() => {
     if (isMenuOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
   }, [isMenuOpen]);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <div className="flex justify-between w-[90%] mx-auto mt-10 items-center">
+      <div
+        className={` ${
+          isScrolled ? "dark:bg-gray-900 bg-gray-200" : ""
+        } flex justify-between w-[90%] mx-auto mt-10 items-center sticky top-0 left-0`}
+      >
         <div className="flex items-center justify-center gap-2">
           <img src="" className="w-12 h-12 bg-primary rounded-full" alt="" />
           <div className="text-2xl font-black"> ThinkSy</div>
