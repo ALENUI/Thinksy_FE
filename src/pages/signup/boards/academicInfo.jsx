@@ -2,6 +2,17 @@ import React, { useState } from "react";
 
 export default function AcademicInfo() {
   const [eduLevel, setEduLevel] = useState("");
+  const [achievements, setAchievements] = useState([""]);
+
+  const handleNewAchieve = () => {
+    setAchievements([...achievements, ""]);
+  };
+
+  const handleChange = (index, value) => {
+    const updated = [...achievements];
+    updated[index] = value;
+    setAchievements(updated);
+  };
   return (
     <>
       <div className="w-11/12 desktop:w-1/2 px-10 bg-amber-50 h-[70vh]"></div>
@@ -29,64 +40,81 @@ export default function AcademicInfo() {
               <option value=""> -- Choose Level --</option>
               <option value="secondary">Secondary Education</option>
               <option value="high">High School</option>
-              <option value="university">University</option>
+              <option value="university">Undergraduate</option>
+              <option value="university">Post Graduate</option>
             </select>
           </div>
           <div>
             <label htmlFor="studyfield" className="input-label">
-              Field of Study
+              Field of Study / Profession
             </label>
+            {eduLevel == "" && <input type="text" className="input-field" />}
             {eduLevel == "secondary" && (
+              <input
+                type="text"
+                value={"secondary Education"}
+                className="input-field"
+              />
+            )}
+            {eduLevel == "high" && (
               <select className="input-field" name="" id="studyfield">
                 <option value="">Arts</option>
                 <option value="">Sciences</option>
               </select>
             )}
+            {eduLevel == "university" && (
+              <select className="input-field" name="" id="studyfield">
+                <option value="">Computer Science</option>
+                <option value="">Mathematics</option>
+                <option value="">Physics</option>
+                <option value="">Economics</option>
+                <option value="">Philosophy </option>
+                <option value="">Economics</option>
+              </select>
+            )}
           </div>
           <div className="">
             <label htmlFor="name" className="input-label">
-              nationality:
+              Insitution/School:
             </label>
 
-            <select name="" className="input-field" id="">
-              <option value="cmr">Cameroon</option>
-              <option value="ngr">Nigeria</option>
-              <option value="Gabon">Gabon</option>
-              <option value="spain">Spain</option>
-            </select>
+            <input
+              type="text"
+              className="input-field"
+              placeholder="Name of your Institution"
+            />
           </div>
           <div>
             <label htmlFor="name" className="input-label">
-              Contact Number:
+              Study Preference:
             </label>
-            <div className="flex gap-2">
-              <select
-                name=""
-                className=" bg-gray-300 text-black rounded-xl "
-                id=""
-              >
-                <option value="+237"> +237</option>
-                <option value="+591">+591</option>
-                <option value="+234">+234</option>
-                <option value="+1">+1</option>
-                <option value="+1">+1</option>
-              </select>
-              <input
-                type="number"
-                className="input-field"
-                placeholder="0000000000000"
-              />
-            </div>
+            <select className="input-field" name="" id="studyfield">
+              <option value="">Group Study</option>
+              <option value="">Solo Study</option>
+              <option value="">Peer Review</option>
+              <option value="">Tutoring</option>
+            </select>
           </div>
           <div>
             <label htmlFor="dob" className="input-label">
-              Date of Birth:
+              Academic Achievements (Optional)
             </label>
-            <input
-              type="date"
-              placeholder="sampleemail@host.domain"
-              className="input-field"
-            />
+            {achievements.map((achieve, index) => (
+              <div key={index} className="flex items-center gap-2 mb-2">
+                <textarea
+                  className="input-field resize-none"
+                  value={achieve}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                ></textarea>
+                <button
+                  type="button"
+                  className="w-8 h-8 p-1 items-center justify-center flex bg-blue-900 text-white rounded-full text-xl"
+                  onClick={handleNewAchieve}
+                >
+                  +
+                </button>
+              </div>
+            ))}
           </div>
           <div className=" flex justify-end">
             <button className="primary-btn w-1/3">NEXT</button>
