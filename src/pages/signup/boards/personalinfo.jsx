@@ -32,12 +32,7 @@ export default function Personalinfo() {
               />
             </div>
           </div>
-          <div>
-            <label htmlFor="uname" className="input-label">
-              Username:
-            </label>
-            <input type="text" className="input-field" placeholder="Username" />
-          </div>
+
           <div>
             <label htmlFor="name" className="input-label">
               Email Address:

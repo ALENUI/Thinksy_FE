@@ -116,7 +116,8 @@ export default function AcademicInfo() {
               </div>
             ))}
           </div>
-          <div className=" flex justify-end">
+          <div className=" flex justify-between items-center">
+            <button className="primary-btn w-1/3">Previous</button>
             <button className="primary-btn w-1/3">NEXT</button>
           </div>
         </form>

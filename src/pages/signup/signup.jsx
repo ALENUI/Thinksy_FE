@@ -3,6 +3,7 @@ import Joyride from "react-joyride";
 
 import Personalinfo from "./boards/personalinfo";
 import AcademicInfo from "./boards/academicInfo";
+import AccountInfo from "./boards/accountInfo";
 
 export default function Signup() {
   const steps = [
@@ -69,7 +70,8 @@ export default function Signup() {
         <button onClick={handleClickStart}>Start</button>
       </div> */}
         {/* <Personalinfo /> */}
-        <AcademicInfo />
+        {/* <AcademicInfo /> */}
+        <AccountInfo />
       </div>
     </>
   );
