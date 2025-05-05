@@ -15,9 +15,9 @@ export default function AcademicInfo() {
   };
   return (
     <>
-      <div className="w-11/12 desktop:w-1/2 px-10 bg-amber-50 h-[70vh]"></div>
-      <div className="w-11/12 desktop:w-3xl mx-auto flex flex-col items-center">
-        <div className="desktop:w-[90%]">
+      <div className="w-11/12 mx-auto desktop:w-1/2 px-10 bg-amber-50 h-[70vh]"></div>
+      <div className=" mx-5 mt-10 desktop:w-1/2  flex flex-col items-center">
+        <div className="desktop:w-[90%] max-tablet:text-center ">
           <h1 className="heading1">Academic Details</h1>
           <p>
             Pelase fill the form bellow accurately and most truthfully Lorem
@@ -26,13 +26,13 @@ export default function AcademicInfo() {
             doloremque explicabo culpa sed veniam dignissimos.
           </p>
         </div>
-        <form className="desktop:w-[90%] flex flex-col gap-3 mt-5 border border-gray-600 rounded-2xl p-5">
+        <div className="desktop:w-[90%] w-full flex flex-col gap-3 mt-5 border border-gray-600 rounded-2xl p-5">
           <div className="w-full">
             <label htmlFor="edulevel" className="input-label t">
               Level of Education:
             </label>
             <select
-              name=""
+              name="eduLevel"
               className="input-field"
               id="edulevel"
               onChange={(e) => setEduLevel(e.target.value)}
@@ -40,8 +40,8 @@ export default function AcademicInfo() {
               <option value=""> -- Choose Level --</option>
               <option value="secondary">Secondary Education</option>
               <option value="high">High School</option>
-              <option value="university">Undergraduate</option>
-              <option value="university">Post Graduate</option>
+              <option value="degree">Undergraduate</option>
+              <option value="masters">Post Graduate</option>
             </select>
           </div>
           <div>
@@ -52,29 +52,30 @@ export default function AcademicInfo() {
             {eduLevel == "secondary" && (
               <input
                 type="text"
-                value={"secondary Education"}
+                value={"general"}
                 className="input-field"
+                name="studyField"
+                id="studyfield"
               />
             )}
             {eduLevel == "high" && (
-              <select className="input-field" name="" id="studyfield">
-                <option value="">Arts</option>
-                <option value="">Sciences</option>
+              <select className="input-field" name="studyField" id="studyfield">
+                <option value="arts">Arts</option>
+                <option value="science">Sciences</option>
               </select>
             )}
             {eduLevel == "university" && (
-              <select className="input-field" name="" id="studyfield">
-                <option value="">Computer Science</option>
-                <option value="">Mathematics</option>
-                <option value="">Physics</option>
-                <option value="">Economics</option>
-                <option value="">Philosophy </option>
-                <option value="">Economics</option>
+              <select className="input-field" name="studyField" id="studyfield">
+                <option value="computer">Computer Science</option>
+                <option value="maths">Mathematics</option>
+                <option value="phys">Physics</option>
+                <option value="econs">Economics</option>
+                <option value="philo">Philosophy </option>
               </select>
             )}
           </div>
           <div className="">
-            <label htmlFor="name" className="input-label">
+            <label htmlFor="school" className="input-label">
               Insitution/School:
             </label>
 
@@ -82,21 +83,22 @@ export default function AcademicInfo() {
               type="text"
               className="input-field"
               placeholder="Name of your Institution"
+              id="school"
+              name="school"
             />
           </div>
           <div>
-            <label htmlFor="name" className="input-label">
+            <label htmlFor="studPreference" className="input-label">
               Study Preference:
             </label>
-            <select className="input-field" name="" id="studyfield">
-              <option value="">Group Study</option>
-              <option value="">Solo Study</option>
-              <option value="">Peer Review</option>
-              <option value="">Tutoring</option>
+            <select className="input-field" name="studPrefs" id="studyfield">
+              <option value="group">Group Study</option>
+              <option value="solo">Solo Study</option>
+              <option value="peer">Peer Review</option>
             </select>
           </div>
           <div>
-            <label htmlFor="dob" className="input-label">
+            <label htmlFor="acadAchieves" className="input-label">
               Academic Achievements (Optional)
             </label>
             {achievements.map((achieve, index) => (
@@ -116,11 +118,7 @@ export default function AcademicInfo() {
               </div>
             ))}
           </div>
-          <div className=" flex justify-between items-center">
-            <button className="primary-btn w-1/3">Previous</button>
-            <button className="primary-btn w-1/3">NEXT</button>
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );

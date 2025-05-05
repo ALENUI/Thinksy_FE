@@ -1,43 +1,52 @@
 import React, { useState } from "react";
-import Joyride from "react-joyride";
 
 import Personalinfo from "./boards/personalinfo";
 import AcademicInfo from "./boards/academicInfo";
 import AccountInfo from "./boards/accountInfo";
 
+const steps = ["Personal Info", "Academic Info", "Account Info"];
 export default function Signup() {
-  const steps = [
-    {
-      target: ".first",
-      content: "This is the first step",
-      placement: "top",
-    },
-    {
-      target: ".second",
-      content: "This is the second step",
-      placement: "top",
-    },
-    {
-      target: ".third",
-      content: "This is the third step",
-      placement: "top",
-    },
-    {
-      target: ".fourth",
-      content: "This is the fourth step",
-      placement: "top",
-    },
-  ];
+  const [step, setStep] = useState(0);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "",
+    country: "",
+    code: "",
+    phone: "",
+    dob: "",
 
-  const [run, setRun] = useState(false);
-  const handleClickStart = () => {
-    setRun(true);
+    eduLevel: "",
+    studyField: "",
+    school: "",
+    studPrefs: "",
+    acadAchieves: "",
+
+    username: "",
+    password: "",
+    confirmPassword: "",
+    accountRole: "",
+    bio: "",
+    agreed: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
+  };
+  const nextStep = () =>
+    setStep((prev) => Math.min(prev + 1, steps.length - 1));
+  const prevStep = () => setStep((prev) => Math.max(prev - 1, 0));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("form Sbmitted: ", formData);
   };
   return (
     <>
-      <div className="tablet:w-2/3 mt-10 mx-auto text-center">
+      <div className="tablet:w-2/3 mt-10 px-5 mx-auto text-center">
         <h1 className="heading1">Create Your account today...</h1>
-        <p>
+        <p className="max-tablet:hidden">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, at
           unde officia neque animi ullam error, sint quae odit maiores qui
           praesentium rem incidunt ipsa explicabo dolorem cupiditate dicta ipsum
@@ -46,32 +55,37 @@ export default function Signup() {
         </p>
       </div>
       <div className="flex max-tablet:flex-col my-10 w-[95%] mx-auto items-center gap-10  min-h-[80vh]">
-        {/* unboarding section */}
-        {/* <div>
-        <Joyride
-          run={run}
-          steps={steps}
-          continuous={true}
-          styles={{
-            options: {
-              arrowColor: "#e3ffeb",
-              backgroundColor: "#e3ffeb",
-              overlayColor: "rgba(79, 26, 0, 0.4)",
-              primaryColor: "#000",
-              textColor: "#004a14",
-              width: 900,
-              zIndex: 1000,
-            },
-          }}
-          disableCloseOnEsc={true}
-          hideCloseButton={true}
-          showProgress={true}
-        />
-        <button onClick={handleClickStart}>Start</button>
-      </div> */}
-        {/* <Personalinfo /> */}
-        {/* <AcademicInfo /> */}
-        <AccountInfo />
+        <form onSubmit={handleSubmit}>
+          <div className="tablet:flex  w-full items-center justify-center gap-5">
+            {step === 0 && <Personalinfo />}
+            {step === 1 && <AcademicInfo />}
+            {step === 2 && <AccountInfo />}
+          </div>
+          <div className="flex justify-between w-1/2 mx-auto mt-10 ">
+            {step > 0 && (
+              <button
+                type="button"
+                onClick={prevStep}
+                className="primary-btn w-1/3"
+              >
+                Back
+              </button>
+            )}
+            {step < steps.length - 1 ? (
+              <button
+                type="button"
+                onClick={nextStep}
+                className="primary-btn w-1/3"
+              >
+                Next
+              </button>
+            ) : (
+              <button type="submit" className="primary-btn w-1/3">
+                Submit
+              </button>
+            )}
+          </div>
+        </form>
       </div>
     </>
   );

@@ -3,9 +3,9 @@ import React from "react";
 export default function Personalinfo() {
   return (
     <>
-      <div className="w-11/12 desktop:w-1/2 px-10 bg-amber-50 h-[70vh]"></div>
-      <div className="w-11/12 desktop:w-1/2 flex flex-col items-center">
-        <div className="desktop:w-[90%]">
+      <div className="w-11/12 mx-auto desktop:w-1/2 px-10 bg-amber-50 h-[70vh]"></div>
+      <div className="w-11/12 mt-10 justify-center desktop:w-1/2 mx-auto flex flex-col items-center">
+        <div className="desktop:w-[90%] mx-auto text-center">
           <h1 className="heading1">Personal Details</h1>
           <p>
             Pelase fill the form bellow accurately and most truthfully Lorem
@@ -14,27 +14,27 @@ export default function Personalinfo() {
             doloremque explicabo culpa sed veniam dignissimos.
           </p>
         </div>
-        <form className="desktop:w-[90%] flex flex-col gap-3 mt-5 border border-gray-600 rounded-2xl p-5">
+        <div className="desktop:w-[90%] w-full flex flex-col justify-center gap-3 mt-5 mx-auto border border-gray-600 rounded-2xl p-5">
           <div className="w-full">
-            <label htmlFor="name" className="input-label t">
-              Full Name:
-            </label>
+            <label className="input-label">Full Name:</label>
             <div className="flex items-center gap-3 w-full">
               <input
                 className="input-field "
                 type="text"
+                name="firstName"
                 placeholder="First Name"
               />
               <input
                 className="input-field "
                 type="text"
+                name="lastName"
                 placeholder="Last Name"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="name" className="input-label">
+            <label htmlFor="email" className="input-label">
               Email Address:
             </label>
 
@@ -42,6 +42,8 @@ export default function Personalinfo() {
               type="text"
               placeholder="sampleemail@host.domain"
               className="input-field"
+              name="email"
+              id="email"
             />
           </div>
           <div className="">
@@ -49,18 +51,18 @@ export default function Personalinfo() {
               Gender:
             </label>
 
-            <select name="" className="input-field" id="">
-              <option value="m">Male</option>
-              <option value="f">Female</option>
-              <option value="un">Can't Say</option>
+            <select name="gender" className="input-field" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="unknown">Can't Say</option>
             </select>
           </div>
           <div className="">
-            <label htmlFor="name" className="input-label">
-              nationality:
+            <label htmlFor="nationality" className="input-label">
+              Nationality:
             </label>
 
-            <select name="" className="input-field" id="">
+            <select name="country" className="input-field" id="nationality">
               <option value="cmr">Cameroon</option>
               <option value="ngr">Nigeria</option>
               <option value="Gabon">Gabon</option>
@@ -68,12 +70,12 @@ export default function Personalinfo() {
             </select>
           </div>
           <div>
-            <label htmlFor="name" className="input-label">
+            <label htmlFor="phone" className="input-label">
               Contact Number:
             </label>
             <div className="flex gap-2">
               <select
-                name=""
+                name="code"
                 className=" bg-gray-300 text-black rounded-xl "
                 id=""
               >
@@ -87,6 +89,7 @@ export default function Personalinfo() {
                 type="number"
                 className="input-field"
                 placeholder="0000000000000"
+                name="phone"
               />
             </div>
           </div>
@@ -98,12 +101,11 @@ export default function Personalinfo() {
               type="date"
               placeholder="sampleemail@host.domain"
               className="input-field"
+              id="dob"
+              name="dob"
             />
           </div>
-          <div className=" flex justify-end">
-            <button className="primary-btn w-1/3">NEXT</button>
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );
