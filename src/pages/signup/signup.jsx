@@ -24,7 +24,7 @@ export default function Signup() {
     confirmPassword: "",
     accountRole: "",
     bio: "",
-    termAgree: false,
+    termAgree: "",
   });
 
   const handleChange = (e) => {
@@ -440,7 +440,7 @@ export default function Signup() {
                         >
                           <textarea
                             className="input-field resize-none"
-                            value={(achieve, formData.studyField)}
+                            value={achieve}
                             onChange={
                               ((e) =>
                                 handleAchieveChange(index, e.target.value),
@@ -465,25 +465,17 @@ export default function Signup() {
           </div>
           <div className="flex justify-between w-1/2 mx-auto mt-10 ">
             {step > 0 && (
-              <button
-                type="button"
-                onClick={prevStep}
-                className="primary-btn w-1/3"
-              >
+              <button onClick={prevStep} className="primary-btn w-1/3">
                 Back
               </button>
             )}
             {step < steps.length - 1 ? (
-              <button
-                type="button"
-                onClick={nextStep}
-                className="primary-btn w-1/3"
-              >
+              <button onClick={nextStep} className="primary-btn w-1/3">
                 Next
               </button>
             ) : (
               <button type="submit" className="primary-btn w-1/3">
-                Submit
+                Create Account
               </button>
             )}
           </div>

@@ -112,7 +112,7 @@ export default function Navbar(props) {
           >
             <Close />
           </div>
-          <div className=" flex flex-col justify-between h-2/3 mt-10 ">
+          <div className=" flex flex-col justify-evenly h-2/3 mt-10 ">
             <div className="flex items-center gap-2">
               <div className="w-14 h-14 rounded-full bg-white"></div>
               <div className="flex flex-col gap-0">
